@@ -11,6 +11,13 @@ var FORM = 'https://script.google.com/macros/s/AKfycbwkTI6PgPTe8OgIcyxzk5oysMvK2
 var ICONE = new URL('icone.svg', window.location.href).href;
 
 TrelloPowerUp.initialize({
+  'card-back-section': function (t) {
+    return {
+      title: 'Pedido de peça',
+      icon: ICONE,
+      content: { type: 'iframe', url: t.signUrl('./secao.html'), height: 70 }
+    };
+  },
   'card-buttons': function (t) {
     return t.card('shortLink').then(function (c) {
       return [{
