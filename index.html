@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Unity - Pedido de Peca (Power-Up)</title>
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+</head>
+<body>
+<script>
+var FORM = 'https://script.google.com/macros/s/AKfycbwkTI6PgPTe8OgIcyxzk5oysMvK2BvWwIQEdh5vhOY2n44KlVJvmeHdXTU1HQ3I5BoQew/exec';
+var ICONE = new URL('icone.svg', window.location.href).href;
+
+TrelloPowerUp.initialize({
+  'card-buttons': function (t) {
+    return t.card('shortLink').then(function (c) {
+      return [{
+        icon: ICONE,
+        text: 'Pedido de peça',
+        url: FORM + '?card=' + encodeURIComponent(c.shortLink),
+        target: 'Pedido de peça — Unity'
+      }];
+    });
+  },
+  'board-buttons': function (t) {
+    return [{
+      icon: { dark: ICONE, light: ICONE },
+      text: 'Novo pedido de peça',
+      url: FORM,
+      target: 'Pedido de peça — Unity'
+    }];
+  }
+});
+</script>
+</body>
+</html>
