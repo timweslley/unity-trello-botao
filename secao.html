@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+<style>
+  body { margin: 0; padding: 2px 0 6px; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  a { display: inline-flex; align-items: center; gap: 8px; background: #e8590c; color: #fff; text-decoration: none;
+      font-weight: 600; padding: 9px 16px; border-radius: 6px; font-size: 14px; }
+  a:hover { background: #d9480f; }
+  small { display: block; color: #5e6c84; font-size: 12px; margin-top: 6px; }
+</style>
+</head>
+<body>
+<a id="b" href="#" target="_blank" rel="noopener">📋 Abrir formulário de pedido de peça</a>
+<small>Código (Cilia) · descrição · tipo (máx. 2) · dados do carro. O card volta para EM COTAÇÃO quando estiver completo.</small>
+<script>
+var FORM = 'https://script.google.com/macros/s/AKfycbwkTI6PgPTe8OgIcyxzk5oysMvK2BvWwIQEdh5vhOY2n44KlVJvmeHdXTU1HQ3I5BoQew/exec';
+var t = TrelloPowerUp.iframe();
+t.card('shortLink').then(function (c) { document.getElementById('b').href = FORM + '?card=' + encodeURIComponent(c.shortLink); });
+t.render(function () { return t.sizeTo(document.body); });
+</script>
+</body>
+</html>
